@@ -1,6 +1,6 @@
 pipeline {
     agent any
-    
+
     stages {
         stage('Test') {
             steps {
@@ -13,7 +13,6 @@ pipeline {
                 ssh -i ./.ssh/id_rsa jenkins@35.178.16.249 << EOF
                 git clone https://github.com/PCMBarber/Spring-ToDo.git
                 cd Spring-ToDo
-                git checkout development
                 git pull
                 mvn clean install
                 mkdir -p /home/jenkins/project-wars
