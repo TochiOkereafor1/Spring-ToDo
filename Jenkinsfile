@@ -10,10 +10,6 @@ pipeline {
         stage('Build') {
             steps {
                 sh '''
-                ssh -i ./.ssh/id_rsa jenkins@http://18.170.38.86 << EOF
-                git clone https://github.com/PCMBarber/Spring-ToDo.git
-                cd Spring-ToDo
-                git pull
                 mvn clean install
                 mkdir -p /home/jenkins/project-wars
                 mv ./target/*.war /home/jenkins/project-wars/project-${BUILD_NUMBER}.war
@@ -24,7 +20,6 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh '''
-                ssh -i ./.ssh/id_rsa jenkins@http://18.170.38.86 << EOF
                 build_num=${BUILD_NUMBER}
                 echo '[Unit]
 Description=My SpringBoot App
