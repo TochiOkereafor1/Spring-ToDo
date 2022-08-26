@@ -9,6 +9,7 @@ pipeline {
             }
         }
         stage('Build') {
+            echo "Build starting"
             steps {
                 sh '''
                 mvn clean install
