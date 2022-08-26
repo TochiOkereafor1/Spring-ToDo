@@ -1,7 +1,9 @@
 pipeline {
+    
     agent any
     stages {
         stage('Test') {
+            echo "Clean test starting"
             steps {
                 sh 'mvn clean test'
             }
