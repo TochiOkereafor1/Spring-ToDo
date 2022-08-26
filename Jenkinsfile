@@ -22,7 +22,8 @@ pipeline {
             echo "Build starting"
             steps {
                 sh '''
-                build_Num=${BUILD_NUMBER}
+
+                build_num=${BUILD_NUMBER}
                 echo '[Unit]
 Description=My SpringBoot App
 [Service]
@@ -30,7 +31,7 @@ Description=My SpringBoot App
 User=jenkins
 Type=simple
 
-ExecStart=/usr/bin/java -jar /home/jenkins/project-wars/project-'$build_Num'.war
+ExecStart=/usr/bin/java -jar /home/jenkins/project-wars/project-'$build_num'.war
 
 [Install]
 WantedBy=multi-user.target' > /home/jenkins/MyApp.service
