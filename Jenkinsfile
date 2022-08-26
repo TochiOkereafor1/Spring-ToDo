@@ -37,6 +37,9 @@ ExecStart=/usr/bin/java -jar /home/jenkins/project-wars/project-'$build_num'.war
 WantedBy=multi-user.target' > /home/jenkins/MyApp.service
                 sudo mv /home/jenkins/MyApp.service /etc/systemd/system/MyApp.service
 
+                sudo systemctl daemon-reload
+                sudo systemctl restart MyApp
+
                 '''
             }
         }
